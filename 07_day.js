@@ -81,7 +81,6 @@ const keys = Object.keys(bookobj3);
 console.log('Keys of the bookobj3 object:');
 keys.forEach(key => console.log(key));
 
-// Log the values of the bookobj3 object
 const values = Object.values(bookobj3);
 console.log('Values of the bookobj3 object:');
 values.forEach(value => console.log(value))
