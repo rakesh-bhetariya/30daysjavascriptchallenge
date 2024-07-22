@@ -70,3 +70,37 @@ let greetingfn = (name, age=25) => {
 // let greeting = greetingfn('Rakesh', 32);
 let greeting = greetingfn('Rakesh');
 console.log(greeting)
+
+// higher order function 
+
+function hof(fn, num){
+    // for(const n of num){
+    //     fn()
+    // }
+
+    for(let i = 0; i <= num; i++){
+        fn()
+    }
+}
+
+function printhello(){
+    console.log('Hello');
+}
+
+hof(printhello, 5);
+
+
+function hof2(fn1, fn2, value){
+    const fn1result = fn1(value);
+    return fn2(fn1result)
+}
+
+function fn1(value){
+    return value+5
+}
+
+function fn2(value){
+    return value-4
+}
+
+console.log(hof2(fn1, fn2, 5))
