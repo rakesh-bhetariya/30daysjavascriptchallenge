@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Manuplation</title>
+</head>
+<style>
+    /* CSS for classes */
+    .highlight {
+        background-color: yellow;
+        color: black;
+    }
+    .faded {
+        opacity: 0.5;
+    }
+
+    .border-highlight {
+        border: 2px solid red;
+    }
+</style>
+<body>
+    <section id="container">
+        <div id="maindiv">
+            <h1 id="heading">Lorem.</h1>
+            <p class="para">Lorem ipsum dolor sit amet.</p>
+            <p class="para">Lorem ipsum dolor sit amet.</p>
+
+            <ul id="myList"></ul>
+        </div>
+    </section>
+    <button id="removeLastLi">Remove Last LI</button>
+    <button id="addClassButton">Add Highlight Class</button>
+    <button id="removeClassButton">Remove Highlight Class</button>
+    <button id="toggleClassButton">Toggle Faded Class</button>
+
+
+    <img id="myImage" src="old-image.jpg" alt="Old Image" width="200">
+    <button id="changeAttrButton">Change Image Source</button>
+
+    <div id="borderDiv">Hover over me!</div>
+</body>
+<script>
+    let heading = document.getElementById('heading');
+    let paras = document.getElementsByClassName('para');
+    let htmlDiv = `<div id ="newDiv"> this is new div</div>`
+    document.getElementById('maindiv').insertAdjacentHTML('beforeend', htmlDiv);
+    let newDiv = document.getElementById('newDiv')
+    let ul = document.getElementById('myList');
+    let borderDiv = document.getElementById('borderDiv');
+
+    function addListItems() {
+        const items = ['Item 1', 'Item 2', 'Item 3'];
+
+        items.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            ul.appendChild(li);
+        });
+    }
+    
+    heading.addEventListener('click', function(){
+        heading.textContent = 'ABC';
+        // paras.style.backgroundColor = 'red';
+        for (const para of paras) {
+            para.style.backgroundColor = 'red';
+        }
+        addListItems();
+        console.log(newDiv,"<<<")
+        newDiv.remove()
+    })
+    
+    // for (const para of paras) {
+    //     para.style.backgroundColor = 'red';
+    // }
+
+    document.getElementById('removeLastLi').addEventListener('click', function() {
+        let lastLi = ul.lastElementChild; // Get the last <li>
+        if (lastLi) {
+            lastLi.remove(); // Remove the last <li>
+        }
+    });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const button = document.getElementById('changeAttrButton');
+        const image = document.getElementById('myImage');
+
+        button.addEventListener('click', () => {
+            // Change the src attribute of the image
+            image.setAttribute('src', 'new-image.jpg');
+            // Alternatively, you can change it directly if it's a standard attribute
+            // image.src = 'new-image.jpg';
+                
+            // Optionally, change other attributes as well
+            image.setAttribute('alt', 'New Image');
+        });
+    });
+
+    document.getElementById('addClassButton').addEventListener('click', () => {
+        document.getElementById('maindiv').classList.add('highlight');
+    });
+
+    // Add event listener for removing the highlight class
+    document.getElementById('removeClassButton').addEventListener('click', () => {
+        document.getElementById('maindiv').classList.remove('highlight');
+    });
+
+    // Add event listener for toggling the faded class
+    document.getElementById('toggleClassButton').addEventListener('click', () => {
+        document.getElementById('maindiv').classList.toggle('faded');
+    });
+
+    borderDiv.addEventListener('mouseover', () => {
+        borderDiv.classList.add('border-highlight');
+    });
+
+    borderDiv.addEventListener('mouseout', () => {
+        borderDiv.classList.remove('border-highlight');
+    });
+
+</script>
+</html>
