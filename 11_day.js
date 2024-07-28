@@ -63,6 +63,31 @@ function fetchSequence() {
     });
 }
 
+
+// function fetchSequence() {
+//     fetchDataFromServer('data1', 1000, (error1, result1) => {
+//         if (error1) {
+//             console.error('Error:', error1);
+//         } else {
+//             console.log(result1);
+//             fetchDataFromServer('data2', 2000, (error2, result2) => {
+//                 if (error2) {
+//                     console.error('Error:', error2);
+//                 } else {
+//                     console.log(result2);
+//                     fetchDataFromServer('data3', 1500, (error3, result3) => {
+//                         if (error3) {
+//                             console.error('Error:', error3);
+//                         } else {
+//                             console.log(result3);
+//                         }
+//                     });
+//                 }
+//             });
+//         }
+//     });
+// }
+
 fetchSequence();
 
 async function fetchSequence1() {
