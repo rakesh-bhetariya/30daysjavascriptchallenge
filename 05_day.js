@@ -71,7 +71,7 @@ let greetingfn = (name, age=25) => {
 let greeting = greetingfn('Rakesh');
 console.log(greeting)
 
-// higher order function 
+// higher order function  a function that takes a function as an arguments this function known as a higher order function 
 
 function hof(fn, num){
     // for(const n of num){
@@ -104,3 +104,48 @@ function fn2(value){
 }
 
 console.log(hof2(fn1, fn2, 5))
+
+function add(num1, num2, cb){
+    console.log(cb,"<<<<<<<<<<<<<")
+    let result = num1 + num2;
+    cb(result)
+};
+
+// add(2, 4, function(val){
+//     console.log(val)
+// }) 1st way to write higher order function
+
+// add(2, 10, (val) => console.log(val, "<<")) 2nd way 
+
+// add(2, 15, print(23)); in this we got an type error cb is not a function  why we can not call this function at that point of time 
+// In your provided code, you are calling the print function without passing any arguments to it, and you are passing the 
+// result of print() (which is undefined since print doesn't return anything) as the third argument to the add function. 
+// This will result in an error because add is likely expecting a function as its third argument but receives undefined instead.
+
+add(2, 15, print);
+
+function print(val){
+    console.log(val)
+}
+
+/* >>>>>>
+        in JavaScript, you can return a function from inside another function. 
+        This is a powerful feature that allows you to create higher-order functions and utilize closures. 
+        When you return a function from another function, the returned function maintains access to the variables and parameters of the 
+        outer function even after the outer function has finished executing.
+<<<<<<<*/
+
+function outerFunction(outerVariable) {
+    return function innerFunction(innerVariable) {
+        console.log('Outer Variable: ' + outerVariable);
+        console.log('Inner Variable: ' + innerVariable);
+    }
+}
+
+const newFunction = outerFunction('outside');
+newFunction('inside');
+
+/* >>>>>>
+    When outerFunction is called with the argument 'outside', it returns innerFunction.
+    The returned innerFunction is stored in newFunction, which is then called with the argument 'inside'.
+<<<<< */
