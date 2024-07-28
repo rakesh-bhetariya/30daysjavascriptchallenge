@@ -60,7 +60,8 @@ for(const [key, value] of Object.entries(bookobj3)){
     if(key === 'name'){
         console.log(`Library name ${value}`)
     } else if (key === 'bookArray'){
-        value.forEach( (item) => console.log(item.name))
+        // value.forEach( (item) => console.log(item.name))
+        value.map( (item) => console.log(item.name))
     }
 }
 
@@ -75,7 +76,7 @@ for (const key in bookobj3) {
         });
       }
     }
-  }
+}
 
 const keys = Object.keys(bookobj3);
 console.log('Keys of the bookobj3 object:');
