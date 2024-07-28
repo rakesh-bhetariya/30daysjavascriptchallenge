@@ -58,3 +58,90 @@ console.log((evenNum));
 
 const sumtheNum = myNums.reduce( (acc, num) => acc + num, 0);
 console.log(sumtheNum)
+
+let users = [
+    {name: "Rakesh", age: 25},
+    {name: "Nayan", age: 30},
+    {name: "Raju", age: 35}
+];
+  
+let names = users.map(user => user.name);
+console.log(names);
+
+let youngUsers = users.filter(user => user.age < 30);
+console.log(youngUsers);
+
+/* 
+   these are common uses of an reduce method 
+*/
+
+// Calculating averages: Summing and then dividing by the count.
+let numbers = [1, 2, 3, 4, 5];
+let average = numbers.reduce((accumulator, currentValue, index, array) => {
+    accumulator += currentValue;
+    if (index === array.length - 1) {
+        return accumulator / array.length;
+    } else {
+        return accumulator;
+    }
+}, 0);
+console.log(average); 
+
+// Flattening arrays: Converting an array of arrays into a single array.
+let arrays = [[1, 2], [3, 4], [5, 6]];
+let flattened = arrays.reduce((accumulator, currentValue) => accumulator.concat(currentValue), []);
+console.log(flattened);
+
+// Counting occurrences: Counting the frequency of items in an array. 
+let items = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
+let count = items.reduce((accumulator, currentValue) => {
+    if (accumulator[currentValue]) {
+        accumulator[currentValue]++;
+    } else {
+        accumulator[currentValue] = 1;
+    }
+    return accumulator;
+}, {});
+console.log(count);
+
+// reduce method overn an object 
+let products = [
+    { name: 'Product 1', price: 10 },
+    { name: 'Product 2', price: 20 },
+    { name: 'Product 3', price: 30 }
+];
+  
+let totalPrice = products.reduce((accumulator, product) => accumulator + product.price, 0);
+console.log(totalPrice);
+
+
+let people = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Alice', age: 35 },
+    { name: 'Charlie', age: 30 },
+    { name: 'Alice', age: 40 }
+];
+  
+let nameCount = people.reduce((accumulator, person) => {
+    if (accumulator[person.name]) {
+      accumulator[person.name]++;
+    } else {
+      accumulator[person.name] = 1;
+    }
+    return accumulator;
+}, {});
+console.log(nameCount);
+
+let averageAge = people.reduce((acc, val, index, array) => {
+
+    acc += val.age
+    if(index === array.length - 1){
+        return acc / array.length
+    } else {
+        return acc
+    }
+}, 0)
+
+console.log(averageAge,"----")
+
