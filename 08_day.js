@@ -100,3 +100,53 @@ const book4 = {
 };
 
 console.log(book4);
+
+// Enhanced object literals in JavaScript provide a more concise and readable syntax for defining objects, 
+// especially when it comes to defining methods, properties, and using computed property names. 
+// They were introduced in ECMAScript 2015 (ES6) and have made object literals more expressive and powerful. 
+// Here are the key features of enhanced object literals
+
+// Property Shorthand
+// When the property name and the variable name are the same, you can omit the property name.
+
+// Method Shorthand
+// You can define methods more concisely without the function keyword.
+
+// Computed Property Names
+// You can use expressions inside square brackets [] as property names.
+
+let names = "Alice";
+let age = 30;
+let propName = "age";
+
+
+let person = {
+    name: names,
+    age: age,
+    greet: function() {
+        console.log("Hello!");
+    }
+};
+
+let person2 = {
+    names,
+    age,
+    greet() {
+        console.log("Hello!");
+    }
+};
+
+person[propName] = 30;
+
+let propName4 = "age";
+let person3 = {
+  [propName4]: 30
+};
+
+
+// Enhanced object literals make it easier and more concise to define objects in JavaScript. They help reduce boilerplate code and improve the readability of your code by allowing you to:
+
+// Use shorthand syntax for properties and methods.
+// Define computed property names directly within the object literal.
+// Use the super keyword within methods.
+// Create objects with dynamic property names.
