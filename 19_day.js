@@ -75,7 +75,7 @@ if (matches6) {
 let text7 = "Hello world, this is a test.";
 
 // ^ asserts the position at the start of the string, \b asserts a word boundary, \w+ matches one or more word characters
-let regex7 = /^\w+/;
+let regex7 = /^\w+/; // \w: This is a shorthand character class that matches any word character (equivalent to [a-zA-Z0-9_])
 
 let matches7 = text7.match(regex7);
 
